@@ -10,6 +10,7 @@ class DashboardScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[100],
 
+      // appbar (judul diatas)
       appBar: AppBar(
         title: const Text(
           'LOKATRIP',
@@ -33,6 +34,7 @@ class DashboardScreen extends StatelessWidget {
         ],
       ),
 
+      // isi halaman utama (dapat discroll)
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.all(16),
@@ -55,11 +57,13 @@ class DashboardScreen extends StatelessWidget {
               ),
               child: Row(
                 children: [
+                  // foto profil
                   const CircleAvatar(
                     radius: 35,
                     backgroundImage: AssetImage('assets/images/profile.png'),
                   ),
                   const SizedBox(width: 16),
+                  // nama dan status
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,6 +83,7 @@ class DashboardScreen extends StatelessWidget {
                       ],
                     ),
                   ),
+                  // ikon qr code
                   IconButton(
                     onPressed: () {},
                     icon: const Icon(Icons.qr_code, color: Color(0xFF0077FF)),
@@ -122,6 +127,7 @@ class DashboardScreen extends StatelessWidget {
                 children: [
                   const Icon(Icons.flight_takeoff, color: Colors.white, size: 44),
                   const SizedBox(width: 16),
+                  // detail trip aktif
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -142,6 +148,7 @@ class DashboardScreen extends StatelessWidget {
                       ],
                     ),
                   ),
+                  // tombol detail
                   ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
@@ -167,6 +174,7 @@ class DashboardScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
 
+            // grid menu (ikon dan label)
             GridView.count(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -198,6 +206,7 @@ class DashboardScreen extends StatelessWidget {
             ),
             const SizedBox(height: 12),
 
+            // daftar kategori
             SizedBox(
               height: 120,
               child: ListView(
@@ -224,6 +233,7 @@ class DashboardScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 12),
+            // gambar destinasi
             SizedBox(
               height: 200,
               child: ListView(
@@ -288,6 +298,7 @@ class DashboardScreen extends StatelessWidget {
 
   // ==================== COMPONENTS ====================
 
+  // komponen menu utama
   Widget _buildMenuItem(IconData icon, String label, BuildContext context, String route) {
     return GestureDetector(
       onTap: () => Navigator.pushNamed(context, route),
@@ -313,6 +324,7 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
+  // komponen kategori wisata
   Widget _buildCategoryCard(String title, IconData icon, Color color) {
     return Container(
       width: 110,
@@ -338,6 +350,7 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
+  // komponen kartu destinasi
   Widget _buildDestinationCard(String title, String imagePath) {
     return Container(
       width: 160,
@@ -371,6 +384,7 @@ class DashboardScreen extends StatelessWidget {
   }
 }
 
+// extension tambahan (placeholder untuk akses warna)
 extension on Color {
   Color? operator [](int other) {
     return null;
